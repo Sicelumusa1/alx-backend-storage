@@ -2,10 +2,16 @@
 
 SELECT
     band_name,
-    (2022 - YEAR(formed)) AS lifespan
+    CASE
+	WHEN split IS NULL THEN (2022 - YEAR(formed))
+	ELSE (YEAR(split) - YEAR(formed))
+    END AS lifespan
 FROM
     metal_bands
 WHERE
     style LIKE '%Glam rock%'
 ORDER BY
-    lifespan DESC;
+    CASE
+        WHEN split IS NULL THEN (2022 - YEAR(formed))
+        ELSE (YEAR(split) - YEAR(formed))
+    END DESC;
