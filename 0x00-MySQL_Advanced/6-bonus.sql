@@ -18,8 +18,6 @@ BEGIN
 
     INSERT INTO corrections (user_id, project_id, score)
     VALUES (p_user_id, v_project_id, p_score);
-END;
-
-//
+END//
 
 DELIMITER ;

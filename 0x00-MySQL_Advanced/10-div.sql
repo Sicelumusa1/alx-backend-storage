@@ -8,14 +8,12 @@ BEGIN
     DECLARE result DECIMAL(10, 2);
 
     IF b = 0 THEN
-	SET result = 0;
+        RETURN 0;
     ELSE
 	SET result = a / b;
+	RETURN result;
     END IF;
 
-    RETURN result;
-END;
-
-//
+END//
 
 DELIMITER ;
